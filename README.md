@@ -4,7 +4,8 @@
 
 WEB APP URL: **https://xme.herokuapp.com/**
 
-WEB API URL: *https://xme-services.herokuapp.com/* 
+WEB API URL: **https://xme-services.herokuapp.com/**
+(Note: JWT secure API if you want to test REST API you must use TOKEN that I put in frontend/public/js/config.js. Using authentication Bearer TOKEN)
 
 ## Functionalities
 
@@ -23,6 +24,6 @@ Weekly hits for the last 4 weeks
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](https://github.com/toanleviet95/tweetme/blob/master/Demo.gif)
+![Video Walkthrough](https://github.com/toanleviet95/shorten.me/blob/master/demo.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
