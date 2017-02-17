@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="shorten_me_app">
+
+<head>
+    <base href="/ShortenMe/">
+    <title>Shorten Me</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <link rel="shortcut icon" href="frontend/public/images/favicon.ico" />
+    <link href="frontend/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="frontend/bower_components/ng-notify/dist/ng-notify.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="frontend/bower_components/morris.js/morris.css" />
+    <link rel="stylesheet" type="text/css" href="frontend/public/css/main.css">
+    <link rel="stylesheet" type="text/css" href="frontend/public/css/global.css">
+    <link rel="stylesheet" type="text/css" href="frontend/public/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="frontend/public/css/box-shadows.css">
+    <link rel="stylesheet" type="text/css" href="frontend/public/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="frontend/public/css/layouts/top-navigation-1.css">
+    <link rel="stylesheet" type="text/css" href="frontend/public/css/elements/navbar-2.css">
+    <link rel="stylesheet" type="text/css" href="frontend/public/css/elements/jumbotron-2.css">
+    <link rel="stylesheet" type="text/css" href="frontend/public/css/dashboards/analytics.css">
+    <link rel="stylesheet" type="text/css" href="frontend/public/css/charts/morris.css">
+    <link rel="stylesheet" type="text/css" href="frontend/public/css/user-widgets/user-widget-1.css">
+    <link rel="stylesheet" type="text/css" href="frontend/public/css/user-widgets/user-widget-10.css">
+    <link rel="stylesheet" type="text/css" href="frontend/public/css/user-widgets/user-widget-11.css">
+    <link rel="stylesheet" type="text/css" href="frontend/public/css/user-widgets/user-widget-2.css">
+    <link rel="stylesheet" type="text/css" href="frontend/public/css/user-widgets/user-widget-6.css">
+    <link rel="stylesheet" type="text/css" href="frontend/public/css/user-widgets/user-widget-7.css">
+    <link rel="stylesheet" type="text/css" href="frontend/public/css/user-widgets/user-widget-8.css">
+    <link rel="stylesheet" type="text/css" href="frontend/public/css/user-widgets/user-widget-9.css">
+    <link rel="stylesheet" type="text/css" href="frontend/public/css/text-widgets/text-widget-1.css">
+    <link rel="stylesheet" type="text/css" href="frontend/public/css/text-widgets/text-widget-2.css">
+    <link rel="stylesheet" type="text/css" href="frontend/public/css/text-widgets/text-widget-7.css">
+</head>
+
+<body ng-controller="main_ctrl">
+    <ng-view></ng-view>
+    <script type="text/javascript" src="frontend/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="frontend/bower_components/jquery/dist/jquery.cookie.js"></script>
+    <script type="text/javascript" src="frontend/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="frontend/bower_components/angular/angular-route.js"></script>
+    <script type="text/javascript" src="frontend/bower_components/ng-notify/dist/ng-notify.min.js"></script>
+    <script type="text/javascript" src="frontend/bower_components/tether/dist/js/tether.js"></script>
+    <script type="text/javascript" src="frontend/bower_components/moment/moment.js"></script>
+    <script type="text/javascript" src="frontend/bower_components/bootstrap-material-design/dist/bootstrap-material-design.iife.js"></script>
+    <script type="text/javascript" src="frontend/bower_components/morris.js/morris.min.js"></script>
+    <script type="text/javascript" src="frontend/bower_components/toastr/toastr.min.js"></script>
+    <script type="text/javascript" src="frontend/bower_components/jquery-fullscreen/jquery.fullscreen-min.js"></script>
+    <script type="text/javascript" src="frontend/bower_components/lodash/dist/lodash.min.js"></script>
+    <script type="text/javascript" src="frontend/public/js/config.js"></script>
+    <script type="text/javascript" src="frontend/controllers/app.js"></script>
+    <script type="text/javascript" src="frontend/controllers/main_ctrl.js"></script>
+    <script type="text/javascript" src="frontend/controllers/analytic_ctrl.js"></script>
+    <script type="text/javascript" src="frontend/services/api-factory.js"></script>
+    <script type="text/javascript" src="frontend/services/shortener-service.js"></script>
+    <script type="text/javascript" src="frontend/directives/shortener-item/shortener-item.directive.js"></script>
+    <script type="text/javascript" src="frontend/directives/shortener-list/shortener-list.directive.js"></script>
+    <script type="text/javascript" src="frontend/directives/url-input/url-input.directive.js"></script>
+    <script type="text/javascript" src="frontend/directives/header-analytic/header-analytic.directive.js"></script>
+    <script type="text/javascript" src="frontend/public/js/functions.js"></script>
+    <script type="text/javascript" src="frontend/public/js/colors.js"></script>
+    <script type="text/javascript" src="frontend/public/js/app.js"></script>
+    <script type="text/javascript" src="frontend/public/js/elements/navbar-2.js"></script>
+</body>
+
+</html>

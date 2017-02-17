@@ -1,0 +1,18 @@
+<script type="text/javascript" src="frontend/bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="frontend/public/js/config.js"></script>
+<script type="text/javascript">
+    var slug = window.location.href.split('/').slice(-1)[0];
+    $.ajax({
+        url: API_URL + slug,
+        method: 'GET',
+        beforeSend: function(xhr, settings) {
+            xhr.setRequestHeader('Authorization', 'Bearer ' + TOKEN);
+        },
+        success: function(result) {
+            window.location.href = result.given_url;
+        },
+        error: function(error) {
+            window.location.href = './';
+        }
+    });
+</script>

@@ -1,0 +1,8 @@
+RewriteEngine On  
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+  RewriteRule ^(.*) - [E=BASE:%1]
+
+  RewriteRule ^/ index.html
+  RewriteRule ^analytics/([a-zA-Z0-9-]+)$ index.html
+  RewriteRule ^([a-zA-Z0-9-]+)$ redirect.html

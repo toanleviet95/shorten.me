@@ -1,0 +1,12 @@
+dev_secret_key_base: 9041fc20515d50e1a26c2e1ab5126c0711416736d55f95bbdf23c1d1d614b3acbae067eff0f23153ac39ff750944d041ab7e72df17c070407d3df7b2b44f9b3f
+test_secret_key_base: ca1320c5f41ced40924843c003573a3707a444aa8cf30a3d92b805d38f50fa7ecd58bbbece943d0167e796b380dfb7039fb35998593b533baa2f07e1e1465099
+database_username_local: postgres
+database_password_local: 123456
+database_host_local: localhost
+database_name_local: shortenme
+database_username: befpnzgzfmnvmc
+database_password: yFgRxLGxvE8bZTUMhsYIMche9G
+database_host: ec2-54-243-220-140.compute-1.amazonaws.com
+database_name: dcoeunsoimf4bh
+url_not_valid: localhost/ShortenMe
+
