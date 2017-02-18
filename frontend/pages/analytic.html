@@ -3,115 +3,47 @@
     <div class="jumbotron-2">
         <div class="jumbotron jumbotron-fluid">
             <div class="container-fluid">
-                <a href="./"><button class="btn btn-rounded btn-primary btn-outline">Back</button></a>
+                <button ng-click="back_home()" class="btn btn-rounded btn-primary btn-outline">Back&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                <button ng-click="update()" class="btn btn-rounded btn-primary btn-outline"><i class="fa fa-refresh" aria-hidden="true"></i>&nbsp;Update</button>
                 <header-analytic></header-analytic>
-
-                <div class="dropdown-menu dropdown-menu-right from-right">
-                    <a class="dropdown-item" href="#">
-                        <i class="material-icons icon">email</i>
-                        <span class="title">Inbox</span>
-                        <span class="tag tag-pill tag-raised tag-danger tag-xs">New</span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="material-icons icon">grade</i>
-                        <span class="title">Messages</span>
-                        <span class="tag tag-outline-primary tag-rounded tag-xs">5</span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="material-icons icon">settings</i>
-                        <span class="title">Profile</span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="material-icons icon">alarm</i>
-                        <span class="title">Lock screen</span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="material-icons icon">power_settings_new</i>
-                        <span class="title">Logout</span>
-                    </a>
-                </div>
             </div>
         </div>
     </div>
     <!-- jumbotron -->
     <div class="container-fluid">
         <div class="row">
-
-
             <div class="col-xs-12 main">
                 <div class="page-on-top">
                     <!-- dashboards/analytics -->
-                    <div class="row m-b-40">
-                        <div class="col-xs-12 col-sm-3 col-xl-4">
-                            <div class="text-widget-1 color-white">
-                                <div class="row flex-items-xs-middle bg-blue-900">
-                                    <div class="col-xs-4 bg-blue-700">
-                                        <i class="fa fa-mouse-pointer fa-2x"></i>
-                                    </div>
-                                    <div class="col-xs-8">
-                                        <div class="title">TOTAL CLICKS</div>
-                                        <div class="subtitle"><span class="counter-2">0</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-3 col-xl-4">
-                            <div class="text-widget-1 color-white">
-                                <div class="row flex-items-xs-middle bg-blue-900">
-                                    <div class="col-xs-4 bg-blue-700">
-                                        <i class="fa fa-map-marker fa-2x"></i>
-                                    </div>
-                                    <div class="col-xs-8">
-                                        <div class="title">TOP LOCATION</div>
-                                        <div class="subtitle"><span class="counter-3">0</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-3 col-xl-4">
-                            <div class="text-widget-1 color-white">
-                                <div class="row flex-items-xs-middle bg-blue-900">
-                                    <div class="col-xs-4 bg-blue-700">
-                                        <i class="fa fa-link fa-2x"></i>
-                                    </div>
-                                    <div class="col-xs-8 ">
-                                        <div class="title ">TOP REFERRER</div>
-                                        <div class="subtitle "><span class="counter-4 ">0</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    <top-analytics></top-analytics>
                     <div class="row m-b-40 ">
-
                         <div class="col-xs-12 col-xl-4 ">
-                            <div class="widget ">
-
-                                <div class="row ">
-                                    <div class="col-xs-12 ">
-                                        <div class="user-widget-2 ">
-                                            <ul class="list-group ">
-                                                <li class="list-group-item ">
-
-                                                    <div class="bmd-list-group-col ">
-                                                        <p class="list-group-item-heading "></p>
-                                                        <p class="list-group-item-text color-primary "></p>
-                                                        <p class="list-group-item-text "></p>
-                                                    </div>
-                                                    <i class="pull-xs-right fa fa-dot-circle-o icon color-secondary "></i>
-                                                </li>
-
-                                            </ul>
-                                        </div>
+                            <shortener-list-analytic></shortener-list-analytic>
+                        </div>
+                        <div class="col-xs-12 col-xl-8 ">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <div class="form-group bmd-form-group">
+                                        <label class="bmd-label-static">SELECT DATE RANGE</label>
+                                        <select ng-click="change_date()" class="form-control" id="date_range" ng-model="date_range">
+                                            <option>Today</option>
+                                            <option>Last 7 days</option>
+                                            <option>Last 4 weeks</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xs-9">
+                                    <div class="form-group bmd-form-group">
+                                        <div><span id="to_date" ng-bind="to_date"></span><span id="space_date" ng-hide="is_today">&nbsp;-&nbsp;</span><span id="from_date" ng-bind="from_date"></span>&nbsp;<i class="fa fa-calendar" aria-hidden="true"></i></div>
                                     </div>
                                 </div>
                             </div>
+                            <div ng-hide="no_info" style="width: 700px" bar-chart bar-data='clickers' bar-x='y' bar-y='["c"]' bar-labels='["Clicks"]' bar-colors='["#673AB7"]'>
+                            </div>
+                            <h2 ng-show="no_info" class="text-md-center">No information</h2>
                         </div>
                     </div>
-                    <!-- dashboards/analytics -->
                 </div>
             </div>
         </div>
     </div>
-</div>

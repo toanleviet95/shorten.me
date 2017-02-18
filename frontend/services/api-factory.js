@@ -4,8 +4,8 @@ app.factory('apiService', function($http) {
         get: function(url) {
             return $http.get(url);
         },
-        getByID: function(url, id) {
-            return $http.get(url + id);
+        getBy: function(url, params) {
+            return $http.get(url + params);
         },
         post: function(url, obj) {
             return $http.post(url, obj);

@@ -1,0 +1,14 @@
+<div class="widget ">
+    <div class="row ">
+        <div class="col-xs-12 ">
+            <div class="user-widget-2 ">
+                <ul class="list-group ">
+                    <li ng-click="analytic(shortener.slug)" style="cursor: pointer" class="list-group-item" ng-repeat="shortener in shorteners | orderBy:'-id'">
+                            <shortener-item-analytic sid="{{shortener.id}}"></shortener-item-analytic>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+    

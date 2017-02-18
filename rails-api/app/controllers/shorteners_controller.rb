@@ -1,11 +1,4 @@
 class ShortenersController < ApplicationController
-    
-    # Define PAYLOAD for securing REST APIs
-    PAYLOAD = {:data => 'leviettoan'}
-    
-    # Require JWT authentication when access APIs
-    before_action :authenticate
-
     def index
         shorteners = Shortener.all
         render json: shorteners, status: :ok
@@ -58,19 +51,20 @@ class ShortenersController < ApplicationController
         end
     end
 
+    def get_shorteners
+        shortener_ids = JSON.parse params[:shortener_ids]
+        shorteners = Shortener.where(id: shortener_ids)
+        render json: shorteners, status: :ok
+    end
+
+    def get_total_clicks
+        shortener_ids = JSON.parse params[:shortener_ids]
+        result = Shortener.select("sum(count) as total_clicks").where(id: shortener_ids)
+        render json: result[0], status: :ok
+    end
+
     private
     def shortener_params
         params.require(:shortener).permit(:given_url, :count)
-    end
-
-    # Use JWT to encode payload then compare with input token
-    def authenticate
-        input = JWT.encode PAYLOAD, nil, 'none'
-        authenticate_or_request_with_http_token do |token, options|
-            ActiveSupport::SecurityUtils.secure_compare(
-            ::Digest::SHA256.hexdigest(token),
-            ::Digest::SHA256.hexdigest(input)
-            )
-        end
     end
 end

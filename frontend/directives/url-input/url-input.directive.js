@@ -35,13 +35,19 @@ app.directive('urlInput', function() {
                             var shorteners = Cookies.get('shorteners');
                             if (shorteners) {
                                 shorteners = shorteners + ',' + success.data.id;
-                                Cookies.set('shorteners', shorteners);
+                                Cookies.set('shorteners', shorteners, { expires: 365 });
                             } else {
-                                Cookies.set('shorteners', success.data.id);
+                                Cookies.set('shorteners', success.data.id, { expires: 365 });
                             }
-                            $rootScope.shorteners = shortenerService.get();
-                            $scope.url_input = '';
-                            $rootScope.loading = false;
+                            shorteners = Cookies.get('shorteners');
+                            shorteners = '[' + shorteners + ']';
+                            shortenerService.get(shorteners).then(function(success) {
+                                $rootScope.shorteners = success.data;
+                                $scope.url_input = '';
+                                $rootScope.loading = false;
+                            }, function(error) {
+                                console.log(error);
+                            });
                         }
 
                     }, function(error) {

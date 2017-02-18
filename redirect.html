@@ -1,6 +1,20 @@
 <script type="text/javascript" src="frontend/bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="frontend/public/js/config.js"></script>
 <script type="text/javascript">
+    function extractDomain(url) {
+        var domain;
+        //find & remove protocol (http, ftp, etc.) and get domain
+        if (url.indexOf("://") > -1) {
+            domain = url.split('/')[2];
+        } else {
+            domain = url.split('/')[0];
+        }
+
+        //find & remove port number
+        domain = domain.split(':')[0];
+
+        return domain;
+    }
     var slug = window.location.href.split('/').slice(-1)[0];
     $.ajax({
         url: API_URL + slug,
@@ -9,7 +23,38 @@
             xhr.setRequestHeader('Authorization', 'Bearer ' + TOKEN);
         },
         success: function(result) {
-            window.location.href = result.given_url;
+            $.get("//freegeoip.net/json/", function(response) {
+                var visitor = {
+                    shortener_id: null,
+                    location: null,
+                    referrer: null,
+                    start_at: null
+                }
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth() + 1;
+                var yyyy = today.getFullYear();
+                visitor.start_at = yyyy + '-' + mm + '-' + dd;
+                visitor.shortener_id = result.id;
+                visitor.location = response.country_name;
+                visitor.referrer = extractDomain(document.referrer);
+                $.ajax({
+                    url: API_URL + 'visitors',
+                    type: 'POST',
+                    data: JSON.stringify(visitor),
+                    dataType: "json",
+                    contentType: "application/json",
+                    beforeSend: function(xhr, settings) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + TOKEN);
+                    },
+                    success: function(data) {
+                        window.location.href = result.given_url;
+                    },
+                    error: function(error) {
+                        window.location.href = './';
+                    }
+                });
+            });
         },
         error: function(error) {
             window.location.href = './';

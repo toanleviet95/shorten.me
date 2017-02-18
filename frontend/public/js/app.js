@@ -5,7 +5,7 @@
 (function() {
     $(function() {
 
-		var colors = bootstrap_colors();
+        var colors = bootstrap_colors();
         var config = {
             name: 'Peak',
             colors: colors
@@ -31,8 +31,8 @@
 
             $('#fakeloader').fakeLoader({
                 timeToHide: loaderTime,
-                zIndex: '99999', 
-                spinner: 'spinner1', //Options: 'spinner1', 'spinner2', 'spinner3', 'spinner4', 'spinner5', 'spinner6', 'spinner7'
+                zIndex: '99999',
+                spinner: 'spinner2', //Options: 'spinner1', 'spinner2', 'spinner3', 'spinner4', 'spinner5', 'spinner6', 'spinner7'
                 bgColor: '#673AB7'
             });
             setTimeout(function() {

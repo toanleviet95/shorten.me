@@ -1,0 +1,41 @@
+<div class="row m-b-40">
+    <div class="col-xs-12 col-sm-4 col-xl-4">
+        <div class="text-widget-1 color-white">
+            <div class="row flex-items-xs-middle bg-blue-900">
+                <div class="col-xs-4 bg-blue-700">
+                    <i class="fa fa-mouse-pointer fa-2x"></i>
+                </div>
+                <div class="col-xs-8">
+                    <div class="title" ng-bind="total_clicks"></div>
+                    <div class="subtitle">TOTAL CLICKS</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-xl-4">
+        <div class="text-widget-1 color-white">
+            <div class="row flex-items-xs-middle bg-blue-900">
+                <div class="col-xs-4 bg-blue-700">
+                    <i class="fa fa-map-marker fa-2x"></i>
+                </div>
+                <div class="col-xs-8">
+                    <div class="title" ng-bind="top_location.location"></div>
+                    <div class="subtitle">TOP LOCATION<span style="float: right; margin-right: 20px;" ng-bind="top_location.total_clicks"></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-xl-4">
+        <div class="text-widget-1 color-white">
+            <div class="row flex-items-xs-middle bg-blue-900">
+                <div class="col-xs-4 bg-blue-700">
+                    <i class="fa fa-link fa-2x"></i>
+                </div>
+                <div class="col-xs-8 ">
+                    <div class="title" ng-bind="top_referrer.referrer"></div>
+                    <div class="subtitle">TOP REFERRER<span style="float: right; margin-right: 20px;" ng-bind="top_referrer.total_clicks"></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

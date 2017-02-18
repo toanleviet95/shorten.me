@@ -12,6 +12,9 @@ app.directive('shortenerItem', function() {
             }, function(error) {
                 console.log(error);
             });
+            $scope.analytic = function(slug) {
+                window.location.href = './analytics/' + slug;
+            };
             $scope.del_shorten = function(id) {
                 $rootScope.loading = true;
                 shortenerService.delete(id).then(function(success) {
@@ -25,11 +28,19 @@ app.directive('shortenerItem', function() {
                             }
                         }
                     }
-                    Cookies.set('shorteners', arr_shorteners.join());
-                    $rootScope.shorteners = shortenerService.get();
-                    $rootScope.loading = false;
+                    Cookies.set('shorteners', arr_shorteners.join(), { expires: 365 });
+                    var shorteners = Cookies.get('shorteners');
+                    shorteners = '[' + shorteners + ']';
+                    shortenerService.get(shorteners).then(function(success) {
+                        $rootScope.shorteners = success.data;
+                        $rootScope.loading = false;
+                    }, function(error) {
+                        console.log(error);
+                        $rootScope.loading = false;
+                    });
                 }, function(error) {
                     console.log(error);
+                    $rootScope.loading = false;
                 });
             };
         }
