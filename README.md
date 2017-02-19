@@ -7,12 +7,16 @@ WEB APP URL: **https://xme.herokuapp.com/**
 WEB API URL: **https://xme-services.herokuapp.com/**
 (Note: JWT secure API if you want to test REST API you must use TOKEN that I put in frontend/public/js/config.js. Using authentication Bearer TOKEN)
 
+## Technical Skills
+
+Frontend: **AngularJS**
+API: **Ruby On Rails**
+
 ## Functionalities
 
 The service should support the **following features**:
 
-Input a URL and get it shortened
-
+* [x] Input a URL and get it shortened
 * [x] Redirect to the correct URL when public users enter the shortened URL’s link
 * [x] Provide simple analytics with basic graphs/numbers (when going to shorten.me/[code]+ ):
 Total hits (a hit is simply a redirect)
