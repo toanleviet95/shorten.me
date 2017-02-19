@@ -10,6 +10,7 @@ WEB API URL: **https://xme-services.herokuapp.com/**
 ## Technical Skills
 
 Frontend: **AngularJS**
+
 API: **Ruby On Rails**
 
 ## Functionalities
