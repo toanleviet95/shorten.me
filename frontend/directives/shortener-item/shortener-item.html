@@ -1,5 +1,7 @@
 <div class="title-shortener" ng-bind="shortener.title"></div>
 <div ng-bind="shortener.given_url"></div>
 <a ng-href="./{{shortener.slug}}" target="_blank">{{shortener.result}}</a>
-<i class="fa fa-times" title="Remove" ng-click="del_shorten(shortener.id)"></i><i ng-click="analytic(shortener.slug)" class="fa fa-bar-chart" title="Go to dashboard"></i></a>
+<i class="fa fa-times" title="Remove" ng-click="del_shorten(shortener.id)"></i>
+<i ng-click="analytic(shortener.slug)" class="fa fa-bar-chart" title="Go to dashboard"></i>
+<i class="fa fa-clipboard" title="Copy link" data-clipboard-text="{{shortener.result}}"></i>
 <hr/>

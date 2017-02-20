@@ -27,6 +27,7 @@
     <ng-view></ng-view>
     <script type="text/javascript" src="frontend/bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="frontend/bower_components/jquery/dist/jquery.cookie.js"></script>
+    <script type="text/javascript" src="frontend/bower_components/clipboard/dist/clipboard.min.js"></script>
     <script type="text/javascript" src="frontend/bower_components/lodash/dist/lodash.min.js"></script>
     <script type="text/javascript" src="frontend/bower_components/raphael/raphael.min.js"></script>
     <script type="text/javascript" src="frontend/bower_components/morris.js/morris.min.js"></script>
@@ -63,6 +64,9 @@
     <script type="text/javascript" src="frontend/directives/referrer-chart/referrer-chart.directive.js"></script>
     <script type="text/javascript" src="frontend/directives/location-chart/location-chart.directive.js"></script>
     <script type="text/javascript" src="frontend/directives/components-analytic/components-analytic.directive.js"></script>
+    <script>
+        var clipboard = new Clipboard('.fa-clipboard');
+    </script>
 </body>
 
 </html>

@@ -1,8 +1,14 @@
 class VisitorsController < ApplicationController
     def create
-        if Visitor.exists?(shortener_id: visitor_params[:shortener_id], location: visitor_params[:location], referrer: visitor_params[:referrer], start_at: visitor_params[:start_at])
-            visitor = Visitor.where(shortener_id: visitor_params[:shortener_id], location: visitor_params[:location], referrer: visitor_params[:referrer], start_at: visitor_params[:start_at]).first
-            if visitor
+        referrer = params[:referrer]
+        if referrer.empty?
+            referrer = 'Dark traffic'
+        end
+        if Visitor.exists?(shortener_id: params[:shortener_id], location: params[:location], referrer: referrer, start_at: params[:start_at])
+            visitor = Visitor.where(shortener_id: params[:shortener_id], location: params[:location], referrer: referrer, start_at: params[:start_at]).first
+            shortener = Shortener.find(params[:shortener_id])
+            if visitor and shortener
+                shortener.increment!(:count)
                 visitor.increment!(:count)
                 render json: visitor, status: :ok
             else
@@ -10,9 +16,7 @@ class VisitorsController < ApplicationController
             end
         else
             visitor = Visitor.new(visitor_params)
-            if visitor.referrer.empty?
-                visitor.referrer = 'Dark traffic'
-            end
+            visitor.referrer = referrer
             if visitor.save
                 render json: visitor, status: :created 
             else

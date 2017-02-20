@@ -67,5 +67,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             'frontend/public/css/text-widgets/text-widget-2.css',
             'frontend/public/css/text-widgets/text-widget-7.css'
         ]
+    }).when('/:slug', {
+        templateUrl: 'redirect.html',
     })
 }]);
