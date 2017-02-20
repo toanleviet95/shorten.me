@@ -7,6 +7,8 @@ WEB APP URL: **https://xme.herokuapp.com/**
 WEB API URL: **https://xme-services.herokuapp.com/**
 (Note: JWT secure API if you want to test REST API you must use TOKEN that I put in frontend/public/js/config.js. Using authentication Bearer TOKEN)
 
+*Note:* This is a simple app so there is no login/authentication to analytic page. Information of shorteners will be stored in cookies of client's browser. 
+
 ## Technical Skills
 
 Frontend: **AngularJS**

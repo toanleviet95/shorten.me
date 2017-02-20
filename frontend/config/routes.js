@@ -1,7 +1,6 @@
-// Config routes for application
+// Routes in application
 
-var app = angular.module('shorten_me_app', ['ngRoute', 'ngNotify', 'angular.morris']);
-
+// Custom directive head to add css attribute in ngRoute
 app.directive('head', ['$rootScope', '$compile',
     function($rootScope, $compile) {
         return {
@@ -43,7 +42,6 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         css: ['frontend/public/css/style.css', '//fonts.googleapis.com/css?family=Text+Me+One']
     }).when('/analytics/:slug', {
         templateUrl: 'frontend/pages/analytic.html',
-        controller: 'analytic_ctrl',
         css: [
             '//fonts.googleapis.com/css?family=Roboto:300,400,500,700',
             '//fonts.googleapis.com/icon?family=Material+Icons',

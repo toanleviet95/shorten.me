@@ -1,5 +1,5 @@
 <ul class="shortener-list" ng-hide="loading">
     <li ng-repeat="shortener in shorteners | orderBy:'-id'">
-        <shortener-item sid="{{shortener.id}}"></shortener-item>
+        <shortener-item item="shortener"></shortener-item>
     </li>
 </ul>

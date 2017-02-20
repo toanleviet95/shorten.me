@@ -3,15 +3,10 @@ app.directive('shortenerItem', function() {
         restrict: 'E',
         templateUrl: './frontend/directives/shortener-item/shortener-item.html',
         scope: {
-            sid: '@'
+            shortener: '=item'
         },
         controller: function($scope, $rootScope, shortenerService) {
-            shortenerService.getByID($scope.sid).then(function(success) {
-                $scope.shortener = success.data;
-                $scope.shortener.result = window.location.hostname + window.location.pathname + $scope.shortener.slug;
-            }, function(error) {
-                console.log(error);
-            });
+            $scope.shortener.result = window.location.hostname + window.location.pathname + $scope.shortener.slug;
             $scope.analytic = function(slug) {
                 window.location.href = './analytics/' + slug;
             };

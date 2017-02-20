@@ -10,8 +10,8 @@ class VisitorsController < ApplicationController
             end
         else
             visitor = Visitor.new(visitor_params)
-            if visitor_params[:referrer] == ''
-                visitor_params[:referrer] = 'Dark traffic'
+            if visitor.referrer.empty?
+                visitor.referrer = 'Dark traffic'
             end
             if visitor.save
                 render json: visitor, status: :created 
@@ -38,6 +38,27 @@ class VisitorsController < ApplicationController
         to_date = params[:to_date].to_date
         result = Visitor.select("start_at, sum(count) as total_clicks").where(:shortener_id => params[:shortener_id], :start_at => from_date..to_date).group("start_at")
         render json: result, status: :ok
+    end
+
+    def get_clicks_by_location
+        from_date = params[:from_date].to_date
+        to_date = params[:to_date].to_date
+        result = Visitor.select("location, sum(count) as total_clicks").where(:shortener_id => params[:shortener_id], :start_at => from_date..to_date).group("location")
+        render json: result, status: :ok
+    end
+
+    def get_clicks_by_referrer
+        from_date = params[:from_date].to_date
+        to_date = params[:to_date].to_date
+        result = Visitor.select("referrer, sum(count) as total_clicks").where(:shortener_id => params[:shortener_id], :start_at => from_date..to_date).group("referrer")
+        render json: result, status: :ok
+    end
+
+    def get_count_click_by_date
+        from_date = params[:from_date].to_date
+        to_date = params[:to_date].to_date
+        result = Visitor.select("sum(count) as count_click").where(:shortener_id => params[:shortener_id], :start_at => from_date..to_date)
+        render json: result[0], status: :ok
     end
 
     private

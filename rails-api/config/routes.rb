@@ -6,5 +6,8 @@ Rails.application.routes.draw do
   get '/get-top-location/:shortener_ids', to: 'visitors#get_top_location'
   get '/get-top-referrer/:shortener_ids', to: 'visitors#get_top_referrer'
   get '/get-clicks-by-date/:shortener_id/:from_date/:to_date', to: 'visitors#get_clicks_by_date'
+  get '/get-clicks-by-location/:shortener_id/:from_date/:to_date', to: 'visitors#get_clicks_by_location'
+  get '/get-clicks-by-referrer/:shortener_id/:from_date/:to_date', to: 'visitors#get_clicks_by_referrer'
+  get '/get-count-click-by-date/:shortener_id/:from_date/:to_date', to: 'visitors#get_count_click_by_date'
   get '/:slug' => 'shorteners#redirect', as: :s
 end

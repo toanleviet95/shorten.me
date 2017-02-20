@@ -1,0 +1,24 @@
+<select-date-range></select-date-range>
+<div ng-hide="loading">
+    <div ng-hide="no_info">
+        <total-clicks></total-clicks>
+    </div>
+    <div ng-hide="no_info" class="row">
+        <div class="col-xs-12">
+            <bar-chart></bar-chart>
+        </div>
+    </div>
+    <div ng-hide="no_info" class="row">
+        <div class="col-xs-6" style="width: 400px">
+            <referrer-chart></referrer-chart>
+        </div>
+        <div class="col-xs-6" style="width: 400px">
+            <location-chart></location-chart>
+        </div>
+    </div>
+    <h2 ng-show="no_info" class="text-md-center">No information</h2>
+</div>
+<div class="text-xs-center" ng-show="loading">
+    <i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></i>
+    <span class="sr-only">Loading...</span>
+</div>
