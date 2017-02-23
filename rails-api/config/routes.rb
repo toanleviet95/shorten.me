@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'home#index'
   resources :shorteners
   resources :visitors
   get '/get-shorteners/:shortener_ids', to: 'shorteners#get_shorteners'

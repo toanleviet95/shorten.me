@@ -165,6 +165,8 @@ app.directive('componentsAnalytic', function() {
                     function(error) {
                         console.log(error);
                     });
+            } else {
+                window.location.href = './';
             }
         }
     }

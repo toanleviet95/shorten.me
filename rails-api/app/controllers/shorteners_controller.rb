@@ -24,10 +24,7 @@ class ShortenersController < ApplicationController
     end
 
     def create
-        if Shortener.exists?(given_url: shortener_params[:given_url])
-            error = {:msg => 'exist',:status => 'error'}
-            render json: error
-        elsif shortener_params[:given_url].include? ENV["url_not_valid"]
+        if shortener_params[:given_url].include? ENV["url_not_valid"]
             error = {:msg => 'not valid',:status => 'error'}
             render json: error
         else
